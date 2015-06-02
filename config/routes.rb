@@ -1,4 +1,26 @@
 SoulControlBack::Application.routes.draw do
+  resources :areas
+
+  resources :countries
+
+  resources :locations
+
+  resources :venue_roles
+
+  resources :venue_users
+
+  resources :venues
+
+  resources :statuses
+
+  resources :tours
+
+  resources :events
+
+  resources :event_user_statuses
+
+  resources :artists
+
   resources :roles
 
   resources :users

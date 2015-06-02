@@ -1,8 +1,7 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
-
-      has_many :user_roles
+      t.belongs_to :company, index:true
       ## Database authenticatable
       t.string :first_name, :null => false, :default => ""
       t.string :last_name, :null => false, :default => ""
@@ -10,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email, :null => false, :default => ""
       t.string :phone, :null => false, :default => ""
       t.string :avatar, :null => false, :default => ""
+      t.string :description, :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
       ## Recoverable

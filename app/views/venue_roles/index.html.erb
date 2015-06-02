@@ -1,0 +1,25 @@
+<h1>Listing venue_roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venue_roles.each do |venue_role| %>
+      <tr>
+        <td><%= link_to 'Show', venue_role %></td>
+        <td><%= link_to 'Edit', edit_venue_role_path(venue_role) %></td>
+        <td><%= link_to 'Destroy', venue_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venue role', new_venue_role_path %>

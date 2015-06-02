@@ -1,0 +1,17 @@
+<%= form_for(@venue_role) do |f| %>
+  <% if @venue_role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@venue_role.errors.count, "error") %> prohibited this venue_role from being saved:</h2>
+
+      <ul>
+      <% @venue_role.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
