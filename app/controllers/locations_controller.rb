@@ -5,11 +5,25 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     @locations = Location.all
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @locations}
+      end
+    end
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @location}
+      end
+    end
   end
 
   # GET /locations/new
@@ -69,6 +83,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params[:location]
+      params[:location].permit(:country_id, :area_id, :address, :latitude, :longitude)
     end
 end

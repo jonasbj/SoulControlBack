@@ -5,11 +5,25 @@ class VenueRolesController < ApplicationController
   # GET /venue_roles.json
   def index
     @venue_roles = VenueRole.all
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @venue_roles }
+      end
+    end
   end
 
   # GET /venue_roles/1
   # GET /venue_roles/1.json
   def show
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @venue_role}
+      end
+    end
   end
 
   # GET /venue_roles/new
@@ -69,6 +83,6 @@ class VenueRolesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def venue_role_params
-      params[:venue_role]
+      params[:venue_role].permit(:name)
     end
 end

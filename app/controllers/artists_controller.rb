@@ -5,11 +5,25 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @artists = Artist.all
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @artists }
+      end
+    end
   end
 
   # GET /artists/1
   # GET /artists/1.json
   def show
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @artist}
+      end
+    end
   end
 
   # GET /artists/new
@@ -69,6 +83,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params[:artist]
+      params[:artist].permit(:name)
     end
 end

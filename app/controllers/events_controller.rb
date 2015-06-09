@@ -5,11 +5,25 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @events }
+      end
+    end
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @event}
+      end
+    end
   end
 
   # GET /events/new
@@ -69,6 +83,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params[:event]
+      params[:event].permit(:artist_id, :tour_id, :status_id, :venue_id, :fee, :percentage, :date)
     end
 end

@@ -5,11 +5,25 @@ class CountriesController < ApplicationController
   # GET /countries.json
   def index
     @countries = Country.all
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @countries }
+      end
+    end
   end
 
   # GET /countries/1
   # GET /countries/1.json
   def show
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @country }
+      end
+    end
   end
 
   # GET /countries/new
@@ -20,7 +34,7 @@ class CountriesController < ApplicationController
   # GET /countries/1/edit
   def edit
   end
-
+  skip_before_action :verify_authenticity_token
   # POST /countries
   # POST /countries.json
   def create
@@ -69,6 +83,6 @@ class CountriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def country_params
-      params[:country]
+      params[:country].permit(:name)
     end
 end

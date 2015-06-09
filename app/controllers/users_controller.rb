@@ -5,11 +5,25 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @users}
+      end
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    respond_to do |format|
+      if @error
+        format.json { render :json => @error.to_json }
+      else
+        format.json { render :json => @user}
+      end
+    end
   end
 
   # GET /users/new
@@ -69,6 +83,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user]
+      params[:user].permit(:company_id,:first_name,:last_name,:active,:email,:phone,:avatar,:description)
     end
 end
