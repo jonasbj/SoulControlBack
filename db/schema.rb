@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602173627) do
+ActiveRecord::Schema.define(version: 20150618151300) do
 
   create_table "areas", force: true do |t|
     t.string   "postcode"
@@ -128,10 +128,12 @@ ActiveRecord::Schema.define(version: 20150602173627) do
     t.string   "first_name",             default: "",   null: false
     t.string   "last_name",              default: "",   null: false
     t.boolean  "active",                 default: true
-    t.string   "email",                  default: "",   null: false
     t.string   "phone",                  default: "",   null: false
     t.string   "avatar"
     t.string   "description",            default: "",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email",                  default: "",   null: false
     t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -145,8 +147,6 @@ ActiveRecord::Schema.define(version: 20150602173627) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree

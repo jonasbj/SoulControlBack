@@ -5,25 +5,12 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
     @areas = Area.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @areas }
-      end
-    end
   end
 
   # GET /areas/1
   # GET /areas/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @area}
-      end
-    end
+    @area = Area.find(params[:id])
   end
 
   # GET /areas/new

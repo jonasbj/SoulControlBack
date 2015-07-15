@@ -5,25 +5,12 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @artists = Artist.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @artists }
-      end
-    end
   end
 
   # GET /artists/1
   # GET /artists/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @artist}
-      end
-    end
+    @artist = Artist.find(params[:id])
   end
 
   # GET /artists/new

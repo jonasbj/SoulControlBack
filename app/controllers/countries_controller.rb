@@ -5,25 +5,12 @@ class CountriesController < ApplicationController
   # GET /countries.json
   def index
     @countries = Country.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @countries }
-      end
-    end
   end
 
   # GET /countries/1
   # GET /countries/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @country }
-      end
-    end
+    @country = Country.find(params[:id])
   end
 
   # GET /countries/new

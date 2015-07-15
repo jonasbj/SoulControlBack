@@ -5,25 +5,12 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @events }
-      end
-    end
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @event}
-      end
-    end
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new

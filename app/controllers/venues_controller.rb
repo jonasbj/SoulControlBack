@@ -5,25 +5,12 @@ class VenuesController < ApplicationController
   # GET /venues.json
   def index
     @venues = Venue.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @venues}
-      end
-    end
   end
 
   # GET /venues/1
   # GET /venues/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @venue}
-      end
-    end
+    @venue = Venue.find(params[:id])
   end
 
   # GET /venues/new

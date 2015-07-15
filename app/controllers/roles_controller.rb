@@ -5,25 +5,12 @@ class RolesController < ApplicationController
   # GET /roles.json
   def index
     @roles = Role.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @roles }
-      end
-    end
   end
 
   # GET /roles/1
   # GET /roles/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @role}
-      end
-    end
+    @role = Role.find(params[:id])
   end
 
   # GET /roles/new

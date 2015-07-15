@@ -5,25 +5,12 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @companies }
-      end
-    end
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @company}
-      end
-    end
+    @company = Company.find(params[:id])
   end
 
   # GET /companies/new

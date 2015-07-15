@@ -5,25 +5,12 @@ class StatusesController < ApplicationController
   # GET /statuses.json
   def index
     @statuses = Status.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @statuses }
-      end
-    end
   end
 
   # GET /statuses/1
   # GET /statuses/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @status}
-      end
-    end
+    @status = Status.find(params[:id])
   end
 
   # GET /statuses/new

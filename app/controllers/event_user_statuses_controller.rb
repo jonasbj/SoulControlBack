@@ -5,25 +5,12 @@ class EventUserStatusesController < ApplicationController
   # GET /event_user_statuses.json
   def index
     @event_user_statuses = EventUserStatus.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @event_user_statuses }
-      end
-    end
   end
 
   # GET /event_user_statuses/1
   # GET /event_user_statuses/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @event_user_status}
-      end
-    end
+    @event_user_status = EventUserStatus.find(params[:id])
   end
 
   # GET /event_user_statuses/new

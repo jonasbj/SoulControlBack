@@ -5,25 +5,12 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @users}
-      end
-    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    respond_to do |format|
-      if @error
-        format.json { render :json => @error.to_json }
-      else
-        format.json { render :json => @user}
-      end
-    end
+    @user = User.find(params[:id])
   end
 
   # GET /users/new

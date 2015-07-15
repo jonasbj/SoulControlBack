@@ -48,7 +48,7 @@ test:
   encoding: unicode
   database: SoulControlBack_test
   pool: 5
-  username: SoulControlBack
+  username: _postgres
   password:
 
 production:
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: SoulControlBack_production
   pool: 5
-  username: SoulControlBack
+  username: _postgres
   password:

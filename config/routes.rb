@@ -1,4 +1,5 @@
 SoulControlBack::Application.routes.draw do
+  devise_for :users
   resources :areas
 
   resources :countries
@@ -26,6 +27,10 @@ SoulControlBack::Application.routes.draw do
   resources :users
 
   resources :companies
+
+
+  root 'soulcontrol#index'
+  get '*path', to: 'soulcontrol#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
