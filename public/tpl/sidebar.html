@@ -1,0 +1,66 @@
+<div class="page-sidebar md-shadow-z-2-i  navbar-collapse collapse">
+	<!-- BEGIN SIDEBAR MENU -->
+	<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+	<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+	<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+	<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+	<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+		<li class="start">
+			<a href="#/dashboard.html">
+			<i class="icon-home"></i>
+			<span class="title">Dashboard</span>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+			<i class="icon-user"></i>
+			<span class="title">My Artists</span>
+			<span class="arrow "></span>
+			</a>
+			<ul class="sub-menu">
+				<li>
+					<a href="#artist.html">
+					<i></i>Atlanter</span>
+					</a>
+				</li>
+				<li>
+					<a href="#artist.html">
+					<i></i>Nils Bech</span>
+					</a>
+				</li>
+				<li>
+					<a href="#artist.html">
+					<i></i>Fay Wildhagen</span>
+					</a>
+				</li>
+				<li>
+					<a href="#artist.html">
+					<i></i>Away</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="javascript:;">
+			<i class="icon-docs"></i>
+			<span class="title">Worksheets</span>
+			<span class="arrow "></span>
+			</a>
+			<ul class="sub-menu">
+				<li>
+					<a href="#/my_worksheet.html">
+					<i></i>My Worksheet</span>
+					</a>
+				</li>
+				<li>
+					<a href="#/shared_worksheet.html">
+					<i></i>Shared Worksheet</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<!-- END SIDEBAR MENU -->
+</div>	

@@ -31,6 +31,8 @@ gem 'devise'
 
 gem 'sprockets', '2.12.3'
 
+gem 'thin'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

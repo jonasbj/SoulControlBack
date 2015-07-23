@@ -28,9 +28,8 @@ SoulControlBack::Application.routes.draw do
 
   resources :companies
 
-
-  root 'soulcontrol#index'
-  get '*path', to: 'soulcontrol#index'
+  get "soulcontrol" => "soulcontrol#index"
+  get "/views/dashboard.html" => "soulcontrol#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
