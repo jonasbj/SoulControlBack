@@ -316,8 +316,7 @@
 							<i class="icon-lock"></i> Lock Screen </a>
 						</li>
 						<li>
-							<a href="login.html">
-							<i class="icon-key"></i> Log Out </a>
+                          <%= link_to( raw('<i class="icon-key"></i>Log out'), destroy_user_session_path, :method => :delete) %>
 						</li>
 					</ul>
 				</li>
