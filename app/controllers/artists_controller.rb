@@ -70,6 +70,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params[:artist].permit(:name)
+      params[:artist].permit(:name, :url, :id)
     end
 end

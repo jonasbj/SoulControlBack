@@ -1,0 +1,154 @@
+<body class="login">
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+<div class="menu-toggler sidebar-toggler">
+</div>
+<!-- END SIDEBAR TOGGLER BUTTON -->
+<!-- BEGIN LOGO -->
+<div class="logo">
+  <a href="index.html">
+    <%= image_tag "admin/layout/img/logo.png", :style => 'height: 17px;' %>
+
+  </a>
+</div>
+<!-- END LOGO -->
+<!-- BEGIN LOGIN -->
+<div class="content">
+  <!-- BEGIN LOGIN FORM -->
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'login-form'}) do |f| %>
+    <div class="form-title">
+      <span class="form-title">Welcome.</span>
+      <span class="form-subtitle">Please login.</span>
+    </div>
+    <div class="alert alert-danger display-hide">
+      <button class="close" data-close="alert"></button>
+			<span>
+			Enter any username and password. </span>
+    </div>
+    <div class="form-group">
+      <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+      <label class="control-label visible-ie8 visible-ie9">Username</label>
+      <%= f.email_field :email, :autofocus => true, :class => 'form-control form-control-solid placeholder-no-fix', :placeholder => 'Username', :type => 'text', :autocomplete => "off" %>
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">Password</label>
+      <%= f.password_field :password, :class => 'form-control form-control-solid placeholder-no-fix', :type => 'password', :autocomplete => 'off', :placeholder => 'Password' %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "Login", :class => 'btn btn-primary btn-block uppercase' %>
+    </div>
+    <div class="form-actions">
+      <div class="pull-left">
+        <label class="rememberme check">
+          <% if devise_mapping.rememberable? -%>
+              <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <% end -%>
+      </div>
+      <div class="pull-right forget-password-block">
+        <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+      </div>
+    </div>
+    <div class="login-options">
+      <h4 class="pull-left">Or login with</h4>
+      <ul class="social-icons pull-right">
+        <li>
+          <a class="social-icon-color facebook" data-original-title="facebook" href="#"></a>
+        </li>
+        <li>
+          <a class="social-icon-color twitter" data-original-title="Twitter" href="#"></a>
+        </li>
+        <li>
+          <a class="social-icon-color googleplus" data-original-title="Goole Plus" href="#"></a>
+        </li>
+        <li>
+          <a class="social-icon-color linkedin" data-original-title="Linkedin" href="#"></a>
+        </li>
+      </ul>
+    </div>
+    <div class="create-account">
+      <p>
+        <a href="javascript:;" id="register-btn">Create an account</a>
+      </p>
+    </div>
+  <% end %>
+  <!-- END LOGIN FORM -->
+
+  <!-- BEGIN FORGOT PASSWORD FORM -->
+
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => 'forget-form' }) do |f| %>
+
+    <div class="form-title">
+      <span class="form-title">Forget Password ?</span>
+      <span class="form-subtitle">Enter your e-mail to reset it.</span>
+    </div>
+    <div class="form-group">
+      <%= f.email_field :email, :class => 'form-control placeholder-no-fix', :autocomplete => 'off', :type => 'text', :placeholder => 'Email' %>
+
+    </div>
+    <div class="form-actions">
+      <button type="button" id="back-btn" class="btn btn-default">Back</button>
+
+      <%= f.submit "Submit", :class => 'btn btn-primary uppercase pull-right' %>
+    </div>
+  <% end %>
+  <!-- END FORGOT PASSWORD FORM -->
+
+  <!-- BEGIN REGISTRATION FORM -->
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :post, :class => 'register-form' }) do |f| %>
+      <%= devise_error_messages! %>
+    <div class="form-title">
+      <span class="form-title">Sign Up</span>
+    </div>
+    <p class="hint">
+      Enter your personal details below:
+    </p>
+
+    <div class="form-group">
+      <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+      <label class="control-label visible-ie8 visible-ie9">Email</label>
+      <%= f.email_field :email, :autofocus => true, :class => 'form-control placeholder-no-fix', :placeholder => 'Email' %>
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">Password</label>
+      <%= f.password_field :password, :class => 'form-control placeholder-no-fix', :type => 'password', :autocomplete => 'off', :id => 'register_password', :placeholder => 'Password' %>
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
+      <%= f.password_field :password_confirmation, :class => 'form-control placeholder-no-fix', :type => 'password', :autocomplete => 'off', :placeholder => 'Re-type Your Password' %>
+    </div>
+    <div class="form-actions">
+      <button type="button" id="register-back-btn" class="btn btn-default">Back</button>
+      <%= f.submit "Submit", :id => 'register-submit-btn', :class => 'btn btn-primary uppercase pull-right' %>
+    </div>
+  <% end %>
+  <!-- END REGISTRATION FORM -->
+
+
+</div>
+<%= javascript_include_tag 'global/plugins/jquery-migrate.min' %>
+<%= javascript_include_tag 'global/plugins/bootstrap/js/bootstrap.min' %>
+<%= javascript_include_tag 'global/plugins/jquery.blockui.min' %>
+<%= javascript_include_tag 'global/plugins/uniform/jquery.uniform.min' %>
+<%= javascript_include_tag 'global/plugins/jquery.cokie.min' %>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<%= javascript_include_tag 'global/plugins/jquery-validation/js/jquery.validate.min' %>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<%= javascript_include_tag 'global/scripts/metronic' %>
+<%= javascript_include_tag 'admin/layout/scripts/layout' %>
+<%= javascript_include_tag 'admin/layout/scripts/demo' %>
+<%= javascript_include_tag 'admin/pages/scripts/login' %>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function() {
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        Login.init();
+        Demo.init();
+    });
+</script>
+
+
+</body>
+
